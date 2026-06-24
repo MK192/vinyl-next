@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useCart } from '@/context/CartContext';
+import { Button } from '@/components/UI/Button';
 
 export default function CartPage() {
   const { cart, removeFromCart, cartTotal, clearCart } = useCart();
@@ -12,11 +13,14 @@ export default function CartPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
         <h1 className="text-4xl font-black mb-6 uppercase tracking-tighter">Your Collection is Empty</h1>
         <p className="text-gray-400 mb-12 max-w-md mx-auto">It seems you haven't added any analog warmth to your collection yet.</p>
-        <Link 
-          href="/shop" 
-          className="px-8 py-4 bg-gold text-black font-bold rounded-full hover:bg-brass transition-all"
-        >
-          Browse Records
+        <Link href="/shop" >
+          <Button
+            variant="primary"
+            shape="pill"
+            size="lg"
+          >
+            Browse Records
+          </Button>
         </Link>
       </div>
     );
@@ -44,28 +48,30 @@ export default function CartPage() {
                 <p className="text-gray-400 text-sm">{item.artist}</p>
                 <div className="mt-2 text-gold font-mono">${item.price} x {item.quantity}</div>
               </div>
-              <button 
+              <Button
                 onClick={() => removeFromCart(item.id)}
-                className="text-gray-500 hover:text-red-500 transition-colors p-2"
+                variant="link"
+                className="hover:text-red-500! p-2"
               >
                 Remove
-              </button>
+              </Button>
             </div>
           ))}
 
-          <button 
+          <Button
             onClick={clearCart}
-            className="text-sm text-gray-500 hover:text-white transition-colors"
+            variant="link"
+            size="sm"
           >
             Clear Collection
-          </button>
+          </Button>
         </div>
 
         {/* Summary */}
         <div className="lg:col-span-1">
           <div className="p-8 bg-card-bg rounded-2xl border border-gold/20 shadow-[0_0_40px_rgba(212,175,55,0.05)] sticky top-24">
             <h2 className="text-2xl font-bold mb-6 border-b border-white/10 pb-4">SUMMARY</h2>
-            
+
             <div className="space-y-4 mb-8">
               <div className="flex justify-between text-gray-400">
                 <span>Subtotal</span>
@@ -81,10 +87,15 @@ export default function CartPage() {
               </div>
             </div>
 
-            <button className="w-full py-4 bg-gold text-black font-black rounded-xl hover:bg-brass transition-all transform hover:scale-[1.02]">
+            <Button
+              variant="primary"
+              size="lg"
+              fullWidth
+              className="font-black hover:scale-[1.02] transform transition-all"
+            >
               PROCEED TO CHECKOUT
-            </button>
-            
+            </Button>
+
             <p className="mt-6 text-center text-xs text-gray-500 uppercase tracking-widest font-medium">
               Secure Checkout • Global Shipping
             </p>

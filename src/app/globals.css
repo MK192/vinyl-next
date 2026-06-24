@@ -5,8 +5,11 @@
   --foreground: #e5e5e5;
   --midnight: #121212;
   --gold: #d4af37;
-  --brass: #b5a642;
+  --brass: #368df7;
   --card-bg: #1e1e1e;
+  --light: #a6abab;
+  --lightGray: #414242;
+  --darkGray: #191a1a;
 }
 
 @theme inline {
@@ -16,7 +19,9 @@
   --color-gold: var(--gold);
   --color-brass: var(--brass);
   --color-card-bg: var(--card-bg);
-
+  --color-light: var(--light);
+  --color-lightGray: var(--lightGray);
+  --color-darkGray: var(--darkGray);
   --animate-spin-slow: spin 8s linear infinite;
 }
 
@@ -24,6 +29,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
