@@ -5,7 +5,8 @@
   --foreground: #e5e5e5;
   --midnight: #121212;
   --gold: #d4af37;
-  --brass: #368df7;
+  --lightRed: #db0b20;
+  --darkRed: #8c0d1a;
   --card-bg: #1e1e1e;
   --light: #a6abab;
   --lightGray: #414242;
@@ -16,7 +17,8 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-midnight: var(--midnight);
-  --color-gold: var(--gold);
+  --color-lightRed: var(--lightRed);
+  --color-darkRed: var(--darkRed);
   --color-brass: var(--brass);
   --color-card-bg: var(--card-bg);
   --color-light: var(--light);
