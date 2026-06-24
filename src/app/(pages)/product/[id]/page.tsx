@@ -7,6 +7,8 @@ import { Vinyl } from "@/types";
 import { useCart } from "@/context/CartContext";
 import { useState, useEffect, use } from "react";
 
+import { Button } from "@/components/UI/Button";
+
 interface ProductPageProps {
   params: Promise<{ id: string }>;
 }
@@ -123,17 +125,20 @@ export default function ProductPage({ params }: ProductPageProps) {
             </ul>
           </div>
 
-          <button
+          <Button
             onClick={handleAddToCart}
             disabled={isAdding}
-            className={`w-full py-5 font-black text-xl rounded-xl transition-all shadow-[0_10px_30px_rgba(212,175,55,0.1)] active:scale-95 ${
-              isAdding
-                ? "bg-green-600 text-white"
-                : "bg-gold text-black hover:bg-brass"
-            }`}
+            variant={isAdding ? undefined : "secondary"}
+            size="xl"
+
+            fullWidth
+            className={`font-black transition-all ${isAdding
+              ? "bg-green-600! text-white! hover:bg-green-600!"
+              : ""
+              }`}
           >
-            {isAdding ? "ADDED TO COLLECTION" : "ADD TO COLLECTION"}
-          </button>
+            {isAdding ? "ADDED TO COLLECTION" : "Buy Vinyl"}
+          </Button>
         </div>
       </div>
     </div>
