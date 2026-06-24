@@ -1,5 +1,7 @@
 'use client';
 
+import { Button } from './UI/Button';
+
 export default function NewsletterForm() {
   return (
     <section className="max-w-5xl mx-auto px-4 w-full text-center py-20 bg-midnight rounded-3xl border border-white/5">
@@ -11,9 +13,14 @@ export default function NewsletterForm() {
           placeholder="your@email.com" 
           className="flex-grow bg-black border border-white/10 px-6 py-3 rounded-full focus:outline-none focus:border-gold/50 text-white"
         />
-        <button className="px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-gold transition-colors">
+        <Button 
+          type="submit"
+          variant="secondary" 
+          shape="pill" 
+          className="px-8 font-bold"
+        >
           Subscribe
-        </button>
+        </Button>
       </form>
     </section>
   );

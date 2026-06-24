@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
+
 import { Vinyl } from '@/types';
+import { Button } from './UI/Button';
 
 interface ProductCardProps {
   product: Vinyl;
@@ -15,7 +17,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <div className="w-4/5 h-4/5 bg-[#111] rounded-full border-4 border-[#222] relative animate-spin-slow shadow-[0_0_20px_rgba(0,0,0,0.8)]">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-1/3 h-1/3 rounded-full border border-white/10 flex items-center justify-center">
-                 <div className="w-2 h-2 bg-gold rounded-full" />
+                <div className="w-2 h-2 bg-gold rounded-full" />
               </div>
             </div>
             {/* Grooves */}
@@ -32,13 +34,16 @@ export default function ProductCard({ product }: ProductCardProps) {
           fill
           className="object-cover z-10 transition-transform duration-500 group-hover:scale-105"
         />
-        
+
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 flex items-end p-4">
-          <Link 
-            href={`/product/${product.id}`}
-            className="w-full py-2 bg-gold text-black text-center font-bold rounded-md hover:bg-brass transition-colors"
-          >
-            View Details
+          <Link href={`/product/${product.id}`}>
+            <Button
+              variant="primary"
+              size="sm"
+              fullWidth
+            >
+              View Details
+            </Button>
           </Link>
         </div>
       </div>
