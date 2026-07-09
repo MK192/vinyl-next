@@ -1,6 +1,5 @@
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
-import NewsletterForm from "@/components/NewsletterForm";
 import { Vinyl } from "@/types";
 import { prisma } from "@/lib/prisma";
 
@@ -8,13 +7,15 @@ async function getFeaturedProducts(): Promise<Vinyl[]> {
   try {
     const products = await prisma.vinyl.findMany({
       orderBy: { createdAt: "desc" },
-      take: 5,
+      take: 6,
     });
     return products.map((product) => ({
       ...product,
       createdAt: product.createdAt.toISOString(),
       updatedAt: product.updatedAt.toISOString(),
     }));
+
+
   } catch (error) {
     console.error("Failed to fetch featured products:", error);
     return [];

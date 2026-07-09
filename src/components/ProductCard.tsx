@@ -1,16 +1,48 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Vinyl } from '@/types';
+//Components
 import { Button } from './UI/Button';
+//types
+import { Vinyl } from '@/types';
+
 
 interface ProductCardProps {
   product: Vinyl;
 }
 
+function getBorderColor(genre: string) {
+  switch (genre) {
+    case 'Jazz':
+      return 'hover:border-jazzBlue';
+    case 'Rock':
+      return 'hover:border-darkRed';
+    case 'Electronic':
+      return 'hover:border-electronicPurple';
+    default:
+      return 'hover:border-gray-400';
+  }
+}
+
+function getTextColor(genre: String) {
+  switch (genre) {
+    case 'Jazz':
+      return 'text-jazzBlue';
+    case 'Rock':
+      return 'text-darkRed';
+    case 'Electronic':
+      return 'text-electronicPurple';
+    default:
+      return 'text-gray-400';
+  }
+}
+
 export default function ProductCard({ product }: ProductCardProps) {
+  const borderColor = getBorderColor(product.genre)
+  const textColor = getTextColor(product.genre)
+
   return (
-    <div className="group relative bg-card-bg rounded-xl overflow-hidden border border-white/5 hover:border-gold/50 transition-all duration-300 shadow-2xl">
+    <div className={`group relative bg-card-bg rounded-2xl overflow-hidden border-2 border-white/10 ${borderColor} transition-all duration-300 shadow-2xl`}>
       <div className="relative aspect-square overflow-hidden">
         {/* Vinyl Record Animation Behind Cover */}
         <div className="absolute inset-0 flex items-center justify-center translate-x-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-12 transition-all duration-500 ease-out">
@@ -53,7 +85,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <p className="text-sm text-gray-400">{product.artist}</p>
         <div className="mt-2 flex justify-between items-center">
           <span className="text-gold font-mono">${product.price}</span>
-          <span className="text-xs text-gray-500 uppercase tracking-widest">{product.genre}</span>
+          <span className={`text-sm ${textColor} font-bold uppercase tracking-widest`}>{product.genre}</span>
         </div>
       </div>
     </div>

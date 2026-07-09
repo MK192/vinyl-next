@@ -11,6 +11,8 @@
   --light: #a6abab;
   --lightGray: #414242;
   --darkGray: #191a1a;
+  --jazzBlue: #084299;
+  --electronicPurple: #612e63;
 }
 
 @theme inline {
@@ -24,6 +26,8 @@
   --color-light: var(--light);
   --color-lightGray: var(--lightGray);
   --color-darkGray: var(--darkGray);
+  --color-jazzBlue: var(--jazzBlue);
+  --color-electronicPurple: var(--electronicPurple);
   --animate-spin-slow: spin 8s linear infinite;
 }
 
